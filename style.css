@@ -6,3 +6,42 @@
 }
 
 /* Animation properties */
+body {
+  background: lightblue;
+  text-align: center;
+}
+
+.wrapper {
+  width: 100%;
+  padding: 0;
+}
+
+img {
+
+}
+
+.circle {
+  width: 100px;
+  padding: 50px 0;
+  background: pink;
+  margin: 60px auto;
+  border-radius: 50px;
+  line-height: 0;
+  cursor: pointer;
+  color: white;
+  transform: scale(2);
+  /* tranform:::- translateY(300px)/translateX(200px)/
+  translate(200px, 300px), scale(1-above)/scale(1-below)
+  either X/Y and also rotate(either X, Y, Z);
+   **/
+  transition: background 1s, transform 1s 1s linear;
+  /* transition: property time delay timing-function;
+    you can chain multiple transition effects using 
+    a comma to separate each one.
+   **/
+}
+
+.circle:hover {
+  background: salmon;
+  transform: rotateZ(360deg);
+}
