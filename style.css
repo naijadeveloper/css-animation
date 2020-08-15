@@ -6,42 +6,123 @@
 }
 
 /* Animation properties */
-body {
-  background: lightblue;
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   text-align: center;
 }
 
-.wrapper {
+.grass, .road, .sky{
+  position: relative;
+}
+
+div.sky {
+  background: skyblue;
+  height: 40%;
+}
+
+div.grass {
+  background: seagreen;
+  height: 30%;
+}
+
+div.road {
   width: 100%;
-  padding: 0;
+  height: 30%;
+  background: dimgray;
+  border-top: 10px solid gray;
+  border-bottom: 10px solid gray;
 }
 
-img {
-
+div.lines {
+  width: 100%;
+  height: 0px;
+  border: 5px dashed #fff;
+  position: absolute;
+  top: 45%;
 }
 
-.circle {
-  width: 100px;
-  padding: 50px 0;
-  background: pink;
-  margin: 60px auto;
-  border-radius: 50px;
-  line-height: 0;
-  cursor: pointer;
-  color: white;
-  transform: scale(2);
-  /* tranform:::- translateY(300px)/translateX(200px)/
-  translate(200px, 300px), scale(1-above)/scale(1-below)
-  either X/Y and also rotate(either X, Y, Z);
-   **/
-  transition: background 1s, transform 1s 1s linear;
-  /* transition: property time delay timing-function;
-    you can chain multiple transition effects using 
-    a comma to separate each one.
-   **/
+
+/*//Keyframes//*/
+
+img.mario {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  animation-name: drive;
+  /* chaining animations */
+  animation: drive 4s both infinite linear, jump 1s 1.3s ease;
 }
 
-.circle:hover {
-  background: salmon;
-  transform: rotateZ(360deg);
+img.luigi {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  /*short-hand for animation */
+  animation: drive 4s both infinite .5s linear;
 }
+
+img.cloud {
+  position: absolute;
+}
+
+img.cloud:nth-child(1) {
+  width: 220px;
+  top:0;
+  left:0;
+  /* animation properties */ 
+  animation-name: cloud-motion1;
+  animation-duration: 45s;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+}
+
+img.cloud:nth-child(2) {
+  width: 190px;
+  opacity: 0.5;
+  top: 60px;
+  left: 5%;
+  animation: cloud-motion2 30s both linear infinite alternate; 
+}
+
+/* keyframes for just 2 states */
+@keyframes drive {
+  from {
+    transform: translateX(-100px)
+  }
+  to {
+    transform: translateX(800px)
+  }
+}
+
+/* keyframes for multiple states */
+@keyframes jump {
+  0% {
+    top: -40px;
+  }
+  50% {
+    top: -100px;
+  }
+  100% {
+    top: -40px;
+  }
+}
+
+@keyframes cloud-motion1 {
+  from {left: 0%;}
+  to {left: 100%;}
+}
+
+@keyframes cloud-motion2 {
+  from {left: 5%;}
+  to {left: 100%;}
+}
+
+
+
+/* 
+animation: animation-name animation-duration animation-delay animation-fill-mode animation-timing-function animation-iteration-count animation-duration; */
