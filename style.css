@@ -2,7 +2,117 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: calibri, sans-serif;
+  font-weight: normal;
 }
 
-/* Animation properties */
+/* Styling Elements */
+body {
+  position: relative;
+  background: #222;
+  overflow: hidden;
+}
+
+h1{
+  color: skyblue;
+  position: relative;
+  top: 45px;
+  left: 10px;
+  z-index: -1;
+  font-size: 35px;
+  animation: fade-in 1s 3.5s ease both,
+             fade-in 1s 7s ease forwards reverse;
+}
+
+@keyframes fade-in {
+  from {top: 45px; opacity: 0;}
+  to   {top: 90px; opacity: 1;}
+}
+
+h1 span {
+  color: #eb879c
+}
+
+h2 {
+  font-size: 35px;
+  margin: 10px 0;
+}
+
+p {
+  margin-bottom: 25px;
+}
+
+section.popup {
+  position: relative;
+  top: 200px;
+  margin: 0 auto;
+  width: 350px;
+  text-align: center;
+}
+
+section.container {
+  background: #f0e4d4;
+  padding: 30px;
+  position: relative;
+}
+
+input {
+  border: 0;
+  padding: 8px;
+  border-radius: 10px 0 0 10px;
+  border: 1px solid #333;
+  font-size: 16px;
+}
+
+button {
+  padding: 8px;
+  border: 0;
+  background: #333;
+  color: #fff;
+  border-radius: 0px 10px 10px 0px;
+  border: 1px solid #333;
+  font-size: 16px;
+  margin-left: -4px;
+  cursor: pointer;
+}
+
+
+.cross {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 11px;
+  background: #555;
+  color: #ddd;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animating the pop up */
+
+section.container {
+  top: -400px;
+  transform-origin: 10px 10px;
+  animation: drop .6s ease forwards,
+             swing 1.5s 2s ease forwards,
+             swing 1.5s 7.5s ease forwards reverse;
+}
+
+
+@keyframes drop {
+  0% {opacity: 0;}
+  70% { transform: translateY(400px); }
+  100% { transform: translateY(350px); opacity: 1;}
+}
+
+@keyframes swing {
+  0% {transform: translateY(350px) rotateZ(0deg) ;}
+ 40% {transform: translateY(350px) rotateZ(90deg);}
+ 70% {transform: translateY(350px) rotateZ(70deg);}
+100% {transform: translateY(350px) rotateZ(75deg);}
+}
