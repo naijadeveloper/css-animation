@@ -7,8 +7,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
+  <script src="assets/jquery/jquery-3.5.1.min.js"></script>
 </head>
 <body>
+
+  <header>
+    <h1>SPORTS CLOTHING</h1>
+    <div class="basket-icon"><img src="assets/basket.png" alt="Open basket icon"><span class="count">0</span></div>
+  </header>
+
+  <ul class="products">
+    <li>
+      <img src="assets/t-1.jpg">
+      <h2>Green T-Shirt</h2>
+      <button>Add to Basket</button>
+    </li>
+    <li>
+      <img src="assets/t-2.jpg">
+      <h2>Yellow T-Shirt</h2>
+      <button>Add to Basket</button>
+    </li>
+    <li>
+      <img src="assets/t-3.jpg">
+      <h2>Pink T-Shirt</h2>
+      <button>Add to Basket</button>
+    </li>
+
+    <li>
+      <img src="assets/t-1.jpg">
+      <h2>Green T-Shirt</h2>
+      <button>Add to Basket</button>
+    </li>
+    <li>
+      <img src="assets/t-2.jpg">
+      <h2>Yellow T-Shirt</h2>
+      <button>Add to Basket</button>
+    </li>
+    <li>
+      <img src="assets/t-3.jpg">
+      <h2>Pink T-Shirt</h2>
+      <button>Add to Basket</button>
+    </li>
+  </ul>
+
+  <script>
+    let count = 0;
+    $('button').on('click', function(){
+      count += 1;
+      $("span.count").html("" + count);
+      //
+      $(this).closest('li')
+       .find('img')
+       .clone()
+       .addClass('zoom')
+       .appendTo('body');
+      //
+      setTimeout(function(){
+        $('.zoom').remove();
+      }, 1000);
+    });
+
+    
+  </script>
 
 </body>
 </html>
